@@ -32,7 +32,7 @@ function Modules(props) {
                 : null}
             <header className=' bg-blue-700 py-2 px-10 text-white flex items-center justify-between'>
                 <h1 className=' text-2xl font-semibold px-4 py-1 text-left'>Project {projectId}</h1>
-                <button onClick={(e) => { setAddModuleModal(true) }} className=' rounded-lg hover:bg-white hover:text-black px-3 py-1' >+ Add Module</button>
+                <button onClick={(e) => { setAddModuleModal(true) }} className=' rounded-lg hover:bg-white hover:text-black px-3 py-1' >+ Add Sub Module</button>
             </header>
             <div className=" w-full min-h-[85vh] bg-gray-100 px-4 py-2 ">
                 <div className='w-full h-full'>
