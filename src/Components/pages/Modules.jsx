@@ -22,7 +22,7 @@ function Modules(props) {
                 <div onClick={(e) => { setAddModuleModal(false) }} style={{ "backgroundColor": "#282c343a" }} className='w-full h-full fixed left-0 top-0 py-10 flex justify-center items-center'>
                     <div onClick={(e) => { e.stopPropagation() }} className=' bg-white border-2 rounded-md p-5 h-fit w-fit'>
                         <div className=' flex flex-col justify-center items-center '>
-                            <h1 className='  w-full font-semibold mb-3 rounded-md py-1'>Add Module</h1>
+                            <h1 className='  w-full font-semibold mb-3 rounded-md py-1'>Add Sub Module</h1>
                             <input className=' w-full border-2 rounded-md px-2 py-0.5' type="text" onChange={(e) => { setModuleName(e.target.value); }} />
                             <button onClick={(e) => { setSubModules([...subModules, { sub_module_name: moduleName, percentage: 0 }]); setAddModuleModal(false) }}
                                 className=' w-full mt-5 bg-blue-700 text-white rounded-md py-1'>ADD</button>
