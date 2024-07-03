@@ -21,7 +21,8 @@ const navigate=useNavigate();
                 {
                     percentage?.map((val) => {
                         return (
-                            <div onClick={(e)=>{navigate(`/project?id=${val?.project_name?.split(" ")[1]}`)}} className=' w-[10rem] h-[10rem] rounded-lg border-2 flex flex-col justify-center items-center gap-2 cursor-pointer'>
+                            <div onClick={(e)=>{navigate(`/project?id=${val?.project_name?.split(" ")[1]}`)}} 
+                            className=' w-[10rem] h-[10rem] hover:bg-blue-300 rounded-lg border-2 flex flex-col justify-center items-center gap-2 cursor-pointer'>
                                 <h1 className=' font-semibold '>{val?.project_name}</h1>
                                 <div className=' w-[70%] h-[70%]'>
                                     <CircularProgressbar value={val?.percentage} text={`${val?.percentage}%`} />

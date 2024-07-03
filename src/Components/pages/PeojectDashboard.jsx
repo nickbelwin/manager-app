@@ -1,62 +1,42 @@
-import React from 'react';
-import { useLocation } from 'react-router-dom';
+// import { StyleSheet, Text, View } from 'react-native'
+import React, { useState } from 'react'
+import { CircularProgressbar } from 'react-circular-progressbar';
+import 'react-circular-progressbar/dist/styles.css';
+import { useNavigate } from 'react-router-dom';
 
-function useQuery() {
-    return new URLSearchParams(useLocation().search);
-}
+function ProjectDashboard() {
+    const [percentage, setPercentage] = useState([
+        { project_name: "Module 1", percentage: 60 },
+        { project_name: "Module 2", percentage: 71 },
+        { project_name: "Module 3", percentage: 32 }
+    ]);
+    const navigate=useNavigate();
 
-function ProjectDashboard(props) {
-    const query = useQuery();
-    const projectId = query.get("id");
     return (
-        <>
-            <h1 className=' text-2xl font-semibold bg-gray-300 px-4 py-2 text-left'>Project {projectId}</h1>
+        <section>
             <div className=" w-full min-h-[100vh] bg-gray-100 px-4 py-2 ">
-                <div className='w-full h-full'>
-                    <div>
-
-                        <h1 className=' text-lg font-semibold text-left py-2'>Module 1</h1>
-                    </div>
-                    <div className=' grid grid-cols-[1fr,2fr] gap-1 text-left'>
-                        <div className=' bg-white min-h-[77vh]'>
-                            <div className=' px-3 py-1 '>
-                                <h1>Sub Module 1</h1>
-                                <div className=' flex items-center gap-3'>
-                                    <div className=' w-[15rem] h-3 bg-gray-400 rounded-full'>
-                                        <div className=' w-[20%] h-full bg-blue-800 rounded-full'></div>
+                <header className=' bg-blue-700 py-2 px-10 text-white flex items-center justify-between'>
+                    <button className=' rounded-lg hover:bg-white hover:text-black px-3 py-1' >+ Add Module</button>
+                </header>
+                <div className=' w-[80%] min-h-[91vh] m-auto bg-white p-5 flex flex-wrap gap-2'>
+                    {
+                        percentage?.map((val) => {
+                            return (
+                                <div onClick={(e) => { navigate(`/project?id=${val?.project_name?.split(" ")[1]}`) }}
+                                    className=' w-[10rem] h-[10rem] hover:bg-blue-300 rounded-lg border-2 flex flex-col justify-center items-center gap-2 cursor-pointer'>
+                                    <h1 className=' font-semibold '>{val?.project_name}</h1>
+                                    <div className=' w-[70%] h-[70%]'>
+                                        <CircularProgressbar value={val?.percentage} text={`${val?.percentage}%`} />
                                     </div>
-                                    <span className=' text-blue-700 font-semibold'>20%</span>
                                 </div>
-                            </div>
-                            <div className=' px-3 py-1 '>
-                                <h1>Sub Module 2</h1>
-                                <div className=' flex items-center gap-3'>
-                                    <div className=' w-[15rem] h-3 bg-gray-400 rounded-full'>
+                            )
+                        })
+                    }
 
-                                        <div className=' w-[92%] h-full bg-blue-800 rounded-full'></div>
-                                    </div>
-                                    <span className=' text-blue-700 font-semibold'>92%</span>
-                                </div>
-                            </div>
-                            <div className=' px-3 py-1 '>
-                                <h1>Sub Module 3</h1>
-                                <div className=' flex items-center gap-3'>
-                                    <div className=' w-[15rem] h-3 bg-gray-400 rounded-full'>
-
-                                        <div className=' w-[56%] h-full bg-blue-800 rounded-full'></div>
-                                    </div>
-                                    <span className=' text-blue-700 font-semibold'>56%</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div className=' bg-white'>
-
-                        </div>
-                    </div>
                 </div>
             </div>
-        </>
-    );
+        </section>
+    )
 }
 
-export default ProjectDashboard;
+export default ProjectDashboard
