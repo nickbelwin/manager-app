@@ -7,10 +7,10 @@ const Home = () => {
     return (
         <div>
             <section className=' relative grid grid-cols-[1fr,4fr] '>
-                <aside className=' w-full '>
+                <aside className=' w-full h-screen'>
                     <Navbar/>
                 </aside>
-                <main className=' w-full'>
+                <main className=' w-full overflow-y-scroll'>
                     <Outlet/>
                 </main>
             </section>

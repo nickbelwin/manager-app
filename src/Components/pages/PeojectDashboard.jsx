@@ -14,7 +14,7 @@ function ProjectDashboard() {
 
     return (
         <section>
-            <div className=" w-full min-h-[100vh] bg-gray-100 px-4 py-2 ">
+            <div className=" w-full min-h-[85vh] bg-gray-100 px-4 py-2 ">
                 <header className=' bg-blue-700 py-2 px-10 text-white flex items-center justify-between'>
                     <button className=' rounded-lg hover:bg-white hover:text-black px-3 py-1' >+ Add Module</button>
                 </header>

@@ -8,6 +8,7 @@ function useQuery() {
 function Modules(props) {
     const query = useQuery();
     const projectId = query.get("id");
+    const [selectedSubModule,setSelectedSubModule]=useState("Sub Module 1")
     const [subModules, setSubModules] = useState([
         { sub_module_name: "Sub Module 1", percentage: 60 },
         { sub_module_name: "Sub Module 2", percentage: 71 },
@@ -33,21 +34,21 @@ function Modules(props) {
                 <h1 className=' text-2xl font-semibold px-4 py-1 text-left'>Project {projectId}</h1>
                 <button onClick={(e) => { setAddModuleModal(true) }} className=' rounded-lg hover:bg-white hover:text-black px-3 py-1' >+ Add Module</button>
             </header>
-            <div className=" w-full min-h-[100vh] bg-gray-100 px-4 py-2 ">
+            <div className=" w-full min-h-[85vh] bg-gray-100 px-4 py-2 ">
                 <div className='w-full h-full'>
                     <div>
 
                         <h1 className=' text-lg font-semibold text-left py-2'>Module 1</h1>
                     </div>
                     <div className=' grid grid-cols-[1fr,2fr] gap-1 text-left'>
-                        <div className=' bg-white min-h-[77vh]'>
+                        <div className=' bg-white min-h-[77vh]  rounded-md overflow-hidden'>
                             {subModules?.map((val) => {
                                 return (
-                                    <div className=' px-3 py-1 '>
+                                    <div onClick={(e)=>{ setSelectedSubModule(val?.sub_module_name)}} className={`px-3 py-1 ${selectedSubModule===val?.sub_module_name? " bg-blue-200  font-semibold ":"hover:bg-blue-50 "} cursor-pointer `}>
                                         <h1>{val?.sub_module_name}</h1>
                                         <div className=' flex items-center gap-3'>
                                             <div className=' w-[15rem] h-3 bg-gray-400 rounded-full'>
-                                                <div className={`w-[${val?.percentage}%] h-full bg-blue-800 rounded-full`}></div>
+                                                <div style={{"width":`${val?.percentage}%`}} className={` h-full bg-blue-800 rounded-full`}></div>
                                             </div>
                                             <span className=' text-blue-700 font-semibold'>{val?.percentage}%</span>
                                         </div>
@@ -56,11 +57,23 @@ function Modules(props) {
                             })
                             }
                         </div>
-                        <div className=' bg-white'>
+                        <div className=' h-full bg-white rounded-md'>
                             <div>
                                 <div>
-                                    <button className=''>Comments</button>
-                                    <button>Issue</button>
+                                    <button className=' px-3 py-1 bg-gray-300 m-2 rounded-md '>Comments</button>
+                                    <button className=' m-2 px-3 py-1 rounded-md bg-red-500 text-white'>Issue</button>
+                                </div>
+                                <div className=' w-full h-full p-2'>
+                                    <div className='bg-gray-100 h-[60vh] p-4 rounded-md overflow-y-scroll'>
+                                        <div className=' w-full bg-white rounded-md p-2'>
+                                            <h1 className=' text-gray-500 text-sm'>Date: 04-Jul-2024</h1>
+                                            Development of Sub Module 1 completed. Now we are testing.
+                                        </div>
+                                    </div>
+                                    <div className='flex gap-3 mt-3'>
+                                        <input type="text" className=' w-full border-2 rounded-md' />
+                                        <button className=' rounded-md   bg-blue-700 text-white font-semibold px-3 py-1'>Sent</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>

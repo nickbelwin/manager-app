@@ -14,8 +14,8 @@ const Navbar = () => {
     const [selectedNav, setSelectedNav] = useState("Dashboard");
 
     return (
-        <header className=" w-full h-screen px-5 py-2 bg-blue-700 text-white">
-            <h1 className=" text-left text-xl font-semibold ">Manager App</h1>
+        <header className=" w-full h-full px-5 py-2 bg-blue-700 text-white">
+            <h1 onClick={(e)=>{navigate("/")}} className="cursor-pointer text-left text-xl font-semibold ">Manager App</h1>
             <div className=" mt-10">
                 <ul className=" flex flex-col justify-start items-start font-semibold">
                     {navList?.map((val => {

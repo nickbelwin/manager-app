@@ -14,7 +14,7 @@ const navigate=useNavigate();
     return (
         <section className='  w-full h-screen'>
             <header className=' bg-blue-700 py-2 px-10 text-white flex items-center justify-between'>
-                <h1 className=" text-left text-xl font-semibold ">Manager App</h1>
+                <h1 onClick={(e)=>{navigate("/")}} className=" cursor-pointer text-left text-xl font-semibold ">Manager App</h1>
                 <button className=' rounded-lg hover:bg-white hover:text-black px-3 py-1' >+ Add Projects</button>
             </header>
             <div className=' w-[80%] min-h-[91vh] m-auto bg-white p-5 flex flex-wrap gap-2'>
