@@ -40,3 +40,19 @@
     transform: rotate(360deg);
   }
 }
+body{
+  background-color: #F9FAFB;
+}
+.textBlue{
+  color: rgb(107 69 251);
+}
+.bgBlue{
+  background-color: rgb(107 69 251);
+}
+.bgLightBlue{
+  transition: 0.3s;
+}
+.bgLightBlue:hover{
+  background-color: rgba(18, 22, 255, 0.183);
+  color: black;
+}

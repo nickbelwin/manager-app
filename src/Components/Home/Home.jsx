@@ -6,7 +6,7 @@ import { Outlet } from 'react-router-dom'
 const Home = () => {
     return (
         <div>
-            <section className=' relative grid grid-cols-[1fr,4fr] '>
+            <section className=' relative grid grid-cols-[1fr,5fr] '>
                 <aside className=' w-full h-screen'>
                     <Navbar/>
                 </aside>

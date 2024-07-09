@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import { CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 import { useLocation, useNavigate } from 'react-router-dom';
+import CircularProgressBar from '../Modals/CircularProgressBar';
 
 function useQuery() {
     return new URLSearchParams(useLocation().search);
@@ -20,7 +21,7 @@ function Dashboard() {
     const [moduleName,setModuleName]=useState("");
     const [addModuleModal,setAddModuleModal]=useState(false);
     return (
-        <section className=' w-full'>
+        <section className=' w-full '>
             {addModuleModal?
             <div onClick={(e)=>{ setAddModuleModal(false) }} style={{"backgroundColor": "#282c343a"}} className='w-full h-full fixed left-0 top-0 py-10 flex justify-center items-center'>
                 <div onClick={(e)=>{e.stopPropagation()}} className=' bg-white border-2 rounded-md p-5 h-fit w-fit'>
@@ -33,21 +34,22 @@ function Dashboard() {
                 </div>
             </div>
             :null }
-            <header className=' bg-blue-700 py-2 px-10 text-white flex items-center justify-between'>
-                <h1 className=' text-2xl font-semibold px-4 py-1 text-left'>Project {projectId}</h1>
-                <button onClick={(e)=>{ setAddModuleModal(true) }} className=' rounded-lg hover:bg-white hover:text-black px-3 py-1' >+ Add Module</button>
+            <header className='  py-1 px-10 bg-gray-50 flex items-center justify-between'>
+                <h1 className=' text-xl font-semibold px-4 py-1 text-left'>Project {projectId}</h1>
+                <button onClick={(e)=>{ setAddModuleModal(true) }} className=' rounded-lg  hover:bg-white hover:text-black font-semibold px-3 py-1' >+ Add Module</button>
             </header>
-            <div className=" w-full min-h-[80vh] bg-gray-100 ">
+            <div className=" w-full min-h-[80vh] bg-gray-50 ">
 
-                <div className=' w-[full min-h-[91vh] m-auto bg-white p-5 flex flex-wrap gap-2'>
+                <div className=' w-[full min-h-[91vh] m-auto bg-gray-50 p-5 flex flex-wrap gap-2'>
                     {
                         percentage?.map((val) => {
                             return (
                                 <div onClick={(e) => { navigate(`/project/modules?id=${val?.project_name?.split(" ")[1]}`) }}
-                                    className=' w-[10rem] h-[10rem] hover:bg-blue-300 rounded-lg border-2 flex flex-col justify-center items-center gap-2 cursor-pointer'>
+                                    className=' w-[11rem] h-[11rem] bg-white hover:bg-purple-100 rounded-lg border-2 flex flex-col justify-center items-center gap-2 cursor-pointer'>
                                     <h1 className=' font-semibold '>{val?.project_name}</h1>
                                     <div className=' w-[70%] h-[70%]'>
-                                        <CircularProgressbar value={val?.percentage} text={`${val?.percentage}%`} />
+                                        {/* <CircularProgressbar value={val?.percentage} text={`${val?.percentage}%`} /> */}
+                                        <CircularProgressBar percentage={val?.percentage} progressColor="rgb(107 69 251)" bgColor="#ddd" showPercentage={true} />
                                     </div>
                                 </div>
                             )
