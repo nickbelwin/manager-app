@@ -23,7 +23,7 @@ function AllProjects() {
                     percentage?.map((val) => {
                         return (
                             <div onClick={(e) => { navigate(`/project?id=${val?.project_name?.split(" ")[1]}`) }}
-                                className=' w-[11rem] h-[11rem] bg-white hover:bg-blue-100 rounded-lg border-2 flex flex-col justify-center items-center gap-2 cursor-pointer'>
+                                className=' w-[11rem] h-[11rem] bg-white bgLightBlue rounded-lg border-2 flex flex-col justify-center items-center gap-2 cursor-pointer'>
                                 <h1 className=' font-semibold '>{val?.project_name}</h1>
                                 <div className=' w-[70%] h-[70%]'>
                                     {/* <CircularProgressbar value={val?.percentage} text={`${val?.percentage}%`}
