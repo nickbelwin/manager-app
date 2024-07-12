@@ -6,11 +6,11 @@ import { Outlet } from 'react-router-dom'
 const Home = () => {
     return (
         <div>
-            <section className=' relative grid grid-cols-[1fr,5fr] '>
-                <aside className=' w-full h-screen'>
+            <section className=' relative flex w-full h-screen overflow-hidden '>
+                <aside className=' w-fit h-screen'>
                     <Navbar/>
                 </aside>
-                <main className=' w-full overflow-y-scroll'>
+                <main className=' w-full h-screen'>
                     <Outlet/>
                 </main>
             </section>

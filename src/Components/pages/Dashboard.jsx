@@ -40,16 +40,29 @@ function Dashboard() {
             </header>
             <div className=" w-full min-h-[80vh] bg-gray-50 ">
 
-                <div className=' w-[full min-h-[91vh] m-auto bg-gray-50 p-5 flex flex-wrap gap-2'>
+                <div className=' w-[full min-h-[91vh] m-auto bg-gray-50 p-5  grid grid-cols-2 gap-3'>
                     {
                         percentage?.map((val) => {
                             return (
                                 <div onClick={(e) => { navigate(`/project/modules?id=${val?.project_name?.split(" ")[1]}`) }}
-                                    className=' w-[11rem] h-[11rem] bg-white bgLightBlue rounded-lg border-2 flex flex-col justify-center items-center gap-2 cursor-pointer'>
-                                    <h1 className=' font-semibold '>{val?.project_name}</h1>
-                                    <div className=' w-[70%] h-[70%]'>
-                                        {/* <CircularProgressbar value={val?.percentage} text={`${val?.percentage}%`} /> */}
+                                    className='  bg-white bgLightBlue rounded-lg border-2 flex flex-col justify-center items-center gap-2 cursor-pointer p-3 h-[13rem]'>
+                                    <h1 className=' font-semibold text-xl'>{val?.project_name}</h1>
+                                    <div className=' flex items-center gap-2 h-full pb-6'>
+                                    <div className=' '>
+                                        
                                         <CircularProgressBar percentage={val?.percentage} progressColor="rgb(107 69 251)" bgColor="#ddd" showPercentage={true} />
+                                    </div>
+                                    <div>
+                                        <h1 className=' text-left font-semibold'>Description: </h1>
+                                        <p className='blockEllipsis text-gray-500 text-justify'>
+                                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
+                                            Asperiores debitis quod hic ea repellat harum doloribus suscipit
+                                             qui quae ducimus, nam aliquid perspiciatis modi quasi error, 
+                                             totam animi? Eaque ducimus modi labore minus error hic molestias
+                                              quo provident incidunt accusamus, officiis vitae maiores quis corporis
+                                               nulla, at ex molestiae eum?  nulla, at ex molestiae eum
+                                        </p>
+                                    </div>
                                     </div>
                                 </div>
                             )
