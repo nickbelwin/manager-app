@@ -45,7 +45,7 @@ function Dashboard() {
                         percentage?.map((val) => {
                             return (
                                 <div onClick={(e) => { navigate(`/project/modules?id=${val?.project_name?.split(" ")[1]}`) }}
-                                    className='  bg-white bgLightBlue rounded-lg border-2 flex flex-col justify-center items-center gap-2 cursor-pointer p-3 h-[13rem]'>
+                                    className='  bg-white bgLightBlue rounded-lg border-2 flex flex-col justify-center items-center gap-2 cursor-pointer p-3'>
                                     <h1 className=' font-semibold text-xl'>{val?.project_name}</h1>
                                     <div className=' flex items-center gap-2 h-full pb-6'>
                                     <div className=' '>

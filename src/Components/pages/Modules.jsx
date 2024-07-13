@@ -8,7 +8,7 @@ function useQuery() {
 function Modules(props) {
     const query = useQuery();
     const projectId = query.get("id");
-    const [selectedSubNav, setSelectedSubNav] = useState("About");
+    const [selectedSubNav, setSelectedSubNav] = useState("Comments");
     const [selectedSubModule, setSelectedSubModule] = useState("Sub Module 1")
     const [subModules, setSubModules] = useState([
         { sub_module_name: "Sub Module 1", percentage: 60 },
@@ -31,7 +31,7 @@ function Modules(props) {
                     </div>
                 </div>
                 : null}
-            <header className=' sticky top-0 left-0 grayBlurShadow bgBody py-1 pl-1 pr-10 flex items-center justify-between'>
+            <header className=' sticky top-0 left-0 bgBody py-1 pl-1 pr-10 flex items-center justify-between'>
                 <h1 className=' text-xl font-semibold px-4 py-1 text-left'>Project {projectId}</h1>
                 <button onClick={(e) => { setAddModuleModal(true) }} className=' rounded-lg hover:bg-white font-semibold hover:text-black px-3 py-1' >+ Add Sub Module</button>
             </header>
@@ -60,8 +60,8 @@ function Modules(props) {
 
                         <div className='  bg-white rounded-md h-full p-3'>
                             <div className=' bg-blue-100 rounded-lg'>
+                            <button onClick={() => { setSelectedSubNav("Comments") }} className={`px-3 py-1  m-2 rounded-md ${selectedSubNav === "Comments" ? "bgBlue text-white" : "bg-gray-300"} `}>Comments</button>
                                 <button onClick={() => { setSelectedSubNav("About") }} className={`px-3 py-1  m-2 rounded-md ${selectedSubNav === "About" ? "bgBlue text-white" : "bg-gray-300"} `}>About</button>
-                                <button onClick={() => { setSelectedSubNav("Comments") }} className={`px-3 py-1  m-2 rounded-md ${selectedSubNav === "Comments" ? "bgBlue text-white" : "bg-gray-300"} `}>Comments</button>
                             </div>
                             <div className='h-full overflow-y-scroll overflow-x-hidden'>
                                 {selectedSubNav === "About" ?
