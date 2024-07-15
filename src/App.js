@@ -8,6 +8,7 @@ import Home from './Components/Home/Home';
 import AllProjects from './Components/pages/AllProjects';
 import Modules from './Components/pages/Modules';
 import Dashboard from './Components/pages/Dashboard';
+import SchedulerBoard from './Components/pages/SchedulerBoard';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
             <Route index element={<Dashboard/>} />
             <Route path='/project/modules' element={<Modules/>} />
           </Route>
+          <Route path='/scheduler' element={<SchedulerBoard/>} />
         </Routes>
     </div>
   );
