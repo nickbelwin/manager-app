@@ -25,15 +25,17 @@ const Task = ({ task, handleCompleteTask }) => {
   }, [task]);
 
   return (
-    <div className="flex items-center mb-4">
-      <h3 className="text-lg font-bold mr-4 w-1/4">{task.title}</h3>
-      <ProgressBar className="w-3/4" completed={progress} />
-      <button 
-        className="ml-4 bg-blue-500 text-white py-1 px-2 rounded hover:bg-blue-700"
-        onClick={() => { setProgress(100); }}
-      >
-        Mark as Completed
-      </button>
+    <div onClick={(e) => e.stopPropagation()} className="flex flex-col items-center min-w-[40vw] bg-white p-3">
+      <h3 className="text-lg font-bold text-left">{task.title}</h3>
+      <div className=' flex items-center w-full'>
+        <ProgressBar className="w-3/4" completed={progress} />
+        <button
+          className="ml-4 bg-blue-500 text-white py-1 px-2 text-sm rounded whitespace-nowrap hover:bg-blue-700"
+          onClick={() => { setProgress(100); }}
+        >
+          Mark as Completed
+        </button>
+      </div>
     </div>
   );
 };
@@ -83,7 +85,7 @@ export default Task;
 //       {task.end && <p className="text-gray-600 mb-4">End Date: {new Date(task.end).toLocaleDateString()}</p>}
 //       <ProgressBar completed={progress} />
 //       {!completed && (
-//         <button 
+//         <button
 //           className="mt-4 bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-700"
 //           onClick={handleComplete}
 //         >

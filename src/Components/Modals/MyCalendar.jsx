@@ -270,7 +270,11 @@ const MyCalendar = () => {
           },
         })}
       />
-      {selectedTask && <Task task={selectedTask} />}
+      {selectedTask && (
+        <div onClick={(e) => { setSelectedTask(false) }} style={{ "backgroundColor": "#282c343a" }} className='w-full h-full fixed left-0 top-0 py-10 flex justify-center items-center'>
+          <Task task={selectedTask} />
+        </div>
+      )}
       <TaskModal
         show={showModal}
         handleClose={() => setShowModal(false)}

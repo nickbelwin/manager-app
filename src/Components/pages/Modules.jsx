@@ -78,22 +78,22 @@ function Modules(props) {
                                     </div> : null}
                                 {selectedSubNav === "Comments" ?
                                     <div>
-                                        <div>
+                                        {/* <div>
                                             <button className=' px-3 py-1 bg-gray-300 m-2 rounded-md '>All</button>
                                             <button className=' m-2 px-3 py-1 rounded-md bg-red-500 text-white'>Issue</button>
-                                        </div>
+                                        </div> */}
                                         <div className=' w-full h-full p-2'>
                                             <div className='bg-gray-100 h-[60vh] p-4 rounded-md overflow-y-scroll flex flex-col gap-3'>
-                                                <div className=' w-full bg-white rounded-md p-2'>
-                                                    <h1 className=' text-gray-500 text-sm'>Date: 08-Jul-2024</h1>
+                                                <div className=' w-full bg-green-500 rounded-md p-2'>
+                                                    <h1 className=' text-white text-sm'>Date: 08-Jul-2024</h1>
                                                     Development of Sub Module 1 completed. Now we are testing.
                                                 </div>
                                                 <div className=' w-full bg-red-500 text-white rounded-md p-2'>
                                                     <h1 className=' text-red-100 text-sm'>Date: 06-Jul-2024</h1>
                                                     Development of Sub Module 1 completed. Now we are testing.
                                                 </div>
-                                                <div className=' w-full bg-white rounded-md p-2'>
-                                                    <h1 className=' text-gray-500 text-sm'>Date: 04-Jul-2024</h1>
+                                                <div className=' w-full bg-green-500 rounded-md p-2'>
+                                                    <h1 className=' text-white text-sm'>Date: 04-Jul-2024</h1>
                                                     Development of Sub Module 1 completed. Now we are testing.
                                                 </div>
                                             </div>
